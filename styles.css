@@ -23,8 +23,8 @@
   --dashboard-bck-gray: #e4eaf1;
 
   /*New change apply gradient*/
-  --dark-bg-gradient: linear-gradient(180deg, rgba(20, 20, 20, 0.9), rgba(50, 50, 50, 0.9));
-  --transparent-bg: rgba(255, 255, 255, 0.1); /* Transparent background for tables */
+  --dark-bg-gradient: linear-gradient(180deg, rgba(104, 208, 228, 0.9), rgba(126, 76, 172, 0.9));
+  --transparent-bg: rgba(49, 42, 42, 0.1); /* Transparent background for tables */
   --border-color: rgba(255, 255, 255, 0.3); /* Light border color */
 }
 
