@@ -57,6 +57,7 @@ body {
     border: 1px solid var(--border-color); /* Light border color */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add soft shadow */
     border-radius: 10px; /* Rounded corners for a modern look */
+    color: #ffffff;
 }
 
 /* Further customizations for .highcharts-background */
@@ -98,6 +99,12 @@ overflow: auto;
 z-index: 0;
 background-color: #ececec00;
 color: #ffffff;
+font-weight: bold;
+}
+.highcharts-axis-labels {
+  fill: #ffffff;
+  cursor: default;
+  font-size: 0.8em;
 }
 /* Dark mode for specific elements */
 @media (prefers-color-scheme: dark) {
