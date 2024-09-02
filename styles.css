@@ -90,7 +90,15 @@ body {
   margin: 10px 15px 10px 10px;
   float: left;
 }
-
+.highcharts-datagrid-outer-container {
+position: absolute;
+width: 100%;
+bottom: 0;
+overflow: auto;
+z-index: 0;
+background-color: #ececec00;
+color: #ffffff;
+}
 /* Dark mode for specific elements */
 @media (prefers-color-scheme: dark) {
   .highcharts-dashboards-wrapper,
