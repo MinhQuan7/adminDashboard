@@ -11,12 +11,15 @@
   border-bottom: 1px solid #a5abb1;
   padding: 20px 15px;
 }
-
+.highcharts-color-1 {
+  fill: #4b8abf;
+  stroke: var(--highcharts-color-1);
+}
 :root,
 .highcharts-light {
   /* Colors for data series and points */
-  --highcharts-color-0: #33a29d;
-  --highcharts-color-2: #fe9d00;
+  --highcharts-color-0: #ffffff;
+  --highcharts-color-2: #ffb743;
 
   /* Extra colors */
   --bck-gray: #f1f5f9;
