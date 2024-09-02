@@ -15,6 +15,11 @@
   fill: #4b8abf;
   stroke: var(--highcharts-color-1);
 }
+.highcharts-dashboards-component{
+  color: #ffffff;
+  font-weight: bold;
+}
+
 :root,
 .highcharts-light {
   /* Colors for data series and points */
