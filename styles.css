@@ -29,8 +29,9 @@
 }
 
 body {
-  background: var(--dark-bg-gradient); /* Áp dụng gradient nền tối */
-  color: white; /* Đổi màu chữ thành trắng để dễ đọc trên nền tối */
+  background: var(--dark-bg-gradient); /* Áp dụng gradient nền tối cho dashboard */
+  min-height: 1000px;
+  padding: 10px; /* Add padding around the dashboard */
 }
 
 .highcharts-dashboards-wrapper {
@@ -39,12 +40,28 @@ body {
   padding: 20px; /* Add padding around the dashboard */
 }
 
-.highcharts-dashboards-cell > .highcharts-dashboards-component {
-  border-radius: 15px;
-  padding: 10px;
-  text-align: left;
-  background: var(--transparent-bg); /* Apply transparent background */
-  border: 1px solid var(--border-color); /* Add subtle border */
+.highcharts-dashboards-cell > .highcharts-dashboards-component,
+#instances-table, /* Table background */
+#cpu,
+#memory,
+#disk,
+#health,
+#disk-usage,
+#cpu-utilization,
+#network-opt,
+#disk-opt {
+    background: var(--transparent-bg); /* Very light transparency */
+    border: 1px solid var(--border-color); /* Light border color */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add soft shadow */
+    border-radius: 10px; /* Rounded corners for a modern look */
+}
+
+/* Further customizations for .highcharts-background */
+.highcharts-background {
+  fill: rgba(255, 255, 255, 0.05); /* Transparent background for charts */
+  stroke: rgba(255, 255, 255, 0.15); /* Light border color */
+  stroke-width: 1px;
+  border-radius: 10px; /* Rounded corners */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add soft shadow */
 }
 
@@ -187,7 +204,6 @@ body {
 #instances-table {
   height: 400px;
 }
-
 #cpu,
 #memory,
 #disk,
