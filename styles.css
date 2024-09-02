@@ -24,6 +24,8 @@
 
   /*New change apply gradient*/
   --dark-bg-gradient: linear-gradient(180deg, rgba(20, 20, 20, 0.9), rgba(50, 50, 50, 0.9));
+  --transparent-bg: rgba(255, 255, 255, 0.1); /* Transparent background for tables */
+  --border-color: rgba(255, 255, 255, 0.3); /* Light border color */
 }
 
 body {
@@ -34,17 +36,23 @@ body {
 .highcharts-dashboards-wrapper {
   background: var(--dark-bg-gradient); /* Áp dụng gradient nền tối cho dashboard */
   min-height: 1000px;
+  padding: 20px; /* Add padding around the dashboard */
 }
 
 .highcharts-dashboards-cell > .highcharts-dashboards-component {
   border-radius: 15px;
   padding: 10px;
   text-align: left;
+  background: var(--transparent-bg); /* Apply transparent background */
+  border: 1px solid var(--border-color); /* Add subtle border */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add soft shadow */
 }
 
 .highcharts-dashboards-component-title {
   font-size: 1.2em;
   text-align: left;
+  margin-bottom: 10px;
+  color: #f0f0f0; /* Slightly lighter text color for titles */
 }
 
 #instance-details .highcharts-dashboards-component-content p {
@@ -111,6 +119,8 @@ body {
 
 #instances-table .highcharts-datagrid-row {
   cursor: pointer;
+  background: var(--transparent-bg); /* Transparent row background */
+  border-bottom: 1px solid var(--border-color); /* Light border for row separation */
 }
 
 #instances-table
@@ -125,7 +135,7 @@ body {
 }
 
 #instances-table .highcharts-datagrid-row:hover {
-  background-color: var(--highcharts-neutral-color-10);
+  background-color: rgba(255, 255, 255, 0.15); /* Slightly more opaque on hover */
 }
 
 .health-title {
@@ -179,13 +189,14 @@ body {
 }
 
 #cpu,
-#memory {
+#memory,
+#disk,
+#health {
   height: 200px;
-}
-
-#health,
-#disk {
-  height: 195px;
+  background: var(--transparent-bg); /* Transparent background for KPI blocks */
+  border: 1px solid var(--border-color); /* Light border */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
 }
 
 #disk-opt,
