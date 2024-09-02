@@ -21,14 +21,18 @@
   /* Extra colors */
   --bck-gray: #f1f5f9;
   --dashboard-bck-gray: #e4eaf1;
+
+  /*New change apply gradient*/
+  --dark-bg-gradient: linear-gradient(180deg, rgba(20, 20, 20, 0.9), rgba(50, 50, 50, 0.9));
 }
 
 body {
-  background-color: var(--bck-gray);
+  background: var(--dark-bg-gradient); /* Áp dụng gradient nền tối */
+  color: white; /* Đổi màu chữ thành trắng để dễ đọc trên nền tối */
 }
 
 .highcharts-dashboards-wrapper {
-  background-color: var(--dashboard-bck-gray);
+  background: var(--dark-bg-gradient); /* Áp dụng gradient nền tối cho dashboard */
   min-height: 1000px;
 }
 
@@ -59,17 +63,18 @@ body {
   float: left;
 }
 
+/* Dark mode for specific elements */
 @media (prefers-color-scheme: dark) {
   .highcharts-dashboards-wrapper,
   .cloud-monitoring-data-controls {
     background-color: var(--highcharts-neutral-color-10);
+    color: #fff;
   }
 
   .cloud-monitoring-data-controls {
-    color: #fff;
+    background: var(--dark-bg-gradient); /* Gradient màu tối */
   }
 }
-
 @media (prefers-color-scheme: light) {
   #instances-table .highcharts-datagrid-column-header,
   #instances-table .highcharts-datagrid-row {
