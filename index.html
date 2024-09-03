@@ -1,23 +1,35 @@
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-<script src="https://code.highcharts.com/highcharts-more.js"></script>
-<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
-<script src="https://code.highcharts.com/dashboards/datagrid.js"></script>
-<script src="https://code.highcharts.com/dashboards/dashboards.js"></script>
-<script src="https://code.highcharts.com/dashboards/modules/layout.js"></script>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+    <script src="https://code.highcharts.com/dashboards/datagrid.js"></script>
+    <script src="https://code.highcharts.com/dashboards/dashboards.js"></script>
+    <script src="https://code.highcharts.com/dashboards/modules/layout.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cloud-monitoring-dashboard-container">
+        <div class="cloud-monitoring-data-controls">
+          <label for="enablePolling">
+            <input type="checkbox" id="enablePolling" name="enablePolling" />
+            <span>Enable data polling</span>
+          </label>
+        </div>
+        <div id="container"></div>
+      </div>
+      <p class="highcharts-description">
+        E-Ra server data on a dashboard.
+      </p>
+      <p class="highcharts-description">
+        E-Ra IoT Dashboard : Edit by minhquan
+      </p>
+    <script src="scripts.js"></script>
+</body>
+</html>
 
-<div class="cloud-monitoring-dashboard-container">
-  <div class="cloud-monitoring-data-controls">
-    <label for="enablePolling">
-      <input type="checkbox" id="enablePolling" name="enablePolling" />
-      <span>Enable data polling</span>
-    </label>
-  </div>
-  <div id="container"></div>
-</div>
-<p class="highcharts-description">
-  E-Ra server data on a dashboard.
-</p>
-<p class="highcharts-description">
-  E-Ra IoT Dashboard : Edit by minhquan
-</p>
