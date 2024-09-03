@@ -227,6 +227,17 @@ body {
 }
 
 
+.new-section {
+  width: 952px;
+  height: 526px;
+  background-color: #e0e0e0; /* You can customize the background color */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Adjust this if needed */
+  border: 1px solid #ccc; /* Optional: Add a border to the section */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visual separation */
+}
 
 .background-container, .overlay {
   position: absolute;
