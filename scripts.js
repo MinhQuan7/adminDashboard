@@ -707,3 +707,38 @@ const setupDashboard = instanceId => {
     // run polling
     await pollingCheckbox.click();
 })();
+
+
+function getRandomTemperature(min, max) {
+    return (Math.random() * (max - min) + min).toFixed(1);
+}
+
+function updateTemperature() {
+    const temperatureElement = document.getElementById('temperature');
+    const tempLabelElement = document.getElementById('temp-label');
+    const barIndicator = document.getElementById('bar-indicator');
+
+    // Random temperature between 15 and 38
+    const randomTemp = getRandomTemperature(15, 38);
+    temperatureElement.innerHTML = randomTemp;
+
+    // Calculate the position of the bar based on the temperature
+    const tempPercent = ((randomTemp - 15) / (38 - 15)) * 100;
+    barIndicator.style.top = (100 - tempPercent) + '%'; // Reverse percentage for correct bar position
+    tempLabelElement.innerHTML = randomTemp;
+
+    // Change color of the temperature text based on value
+    if (randomTemp >= 30) {
+        temperatureElement.style.color = 'orange';
+    } else if (randomTemp <= 20) {
+        temperatureElement.style.color = 'blue';
+    } else {
+        temperatureElement.style.color = 'green';
+    }
+}
+
+// Update temperature every 3 seconds
+setInterval(updateTemperature, 3000);
+
+// Initial call to set random temperature on page load
+updateTemperature();
