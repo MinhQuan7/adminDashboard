@@ -38,72 +38,191 @@ body {
     overflow: hidden; /* Loại bỏ scrollbar */
 }
 
+/*____________________Temp Widget_______________*/
 
-.temp-widget {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin: 10px;
-    z-index: 1000; /* Đảm bảo widget luôn nằm trên các phần tử khác */
+.widget {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 15px;
+    width: 80%; /* Use viewport width */
+    height: 80%; /* Use viewport height */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    color: #000000;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.temp-widget .widget {
-    background-color: #ffffff;
-    border-radius: 15px;
-    padding: 20px;
-    width: 250px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm box-shadow để giống các phần khác */
-    border: 1px solid #e4eaf1; /* Viền giống các phần khác */
-    color: #333;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.widget:hover {
+    box-shadow: 2 14px 25px rgba(243, 112, 5, 0.2);
 }
 
-.temp-widget .widget:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+/* Adjust scaling for smaller screens */
+@media (max-width: 1200px) {
+    .widget {
+        transform: scale(0.9);
+    }
 }
 
-.temp-widget .temperature {
-    font-size: 36px; /* Giảm kích thước để phù hợp với giao diện */
+@media (max-width: 992px) {
+    .widget {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 768px) {
+    .widget {
+        transform: scale(0.87);
+    }
+}
+
+@media (max-width: 576px) {
+    .widget {
+        transform: scale(0.79);
+    }
+
+    .temperature {
+        font-size: 50px;
+    }
+
+    .widget h2 {
+        font-size: 18px;
+    }
+}
+
+.temperature-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.widget h2 {
+font-size: 28px;
+color: #130f0f;
+display: flex;
+align-items: center;
+position: absolute; /* Giúp cố định h2 ở góc trên cùng */
+top: 0; /* Căn lên đầu */
+left: 0; /* Căn sang trái */
+margin: 15px; /* Khoảng cách với viền trái và trên */
+}
+
+.icon-temp {
+    width: 34px;
+    height: 34px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.temperature {
+    font-size: 60px;
     font-weight: bold;
     margin: 10px 0;
-    color: #333;
-    transition: color 0.3s ease;
 }
 
-.temp-widget .temp-change {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 15px;
+.temp-change {
+    font-size: 16px;
+    color: #252525;
 }
 
-.temp-widget .bar-container {
+/* Temperature bar container with labels */
+.bar-container-with-labels {
     position: relative;
-    height: 120px;
-    width: 30px;
-    background: linear-gradient(to top, blue, green, yellow, orange, red);
-    border-radius: 5px;
+    height: 100%;
+    width: 120px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: box-shadow 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
-.temp-widget .bar-indicator {
-    position: absolute;
-    left: -10px;
-    width: 50px;
-    height: 2px;
-    background-color: white;
-    transition: top 0.3s ease;
+/* Row for each label and segment */
+.bar-row {
+    display: flex;
+    align-items: center;
+    height: calc(100% / 6);  /* Chia chiều cao đều cho 6 segment */
 }
 
-.temp-widget .bar-indicator span {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
+/* Labels for each segment */
+.bar-label {
+    width: 40px;
+    text-align: right;
+    margin-right: 5px;
     font-size: 14px;
-    transition: color 0.3s ease;
+    color: #333;
 }
+
+/* Temperature bar segments */
+.bar-segment {
+    flex: 1;
+    height: 100%;
+}
+
+/* Bar indicator styling */
+.bar-indicator {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transition: top 0.5s ease;
+}
+
+/* Color segments */
+.segment-40 {
+    background-color: rgba(255, 69, 0, 0.7);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.segment-30 {
+    background-color: rgba(255, 165, 0, 0.7);
+}
+
+.segment-20 {
+    background-color: rgba(255, 255, 102, 0.7);
+}
+
+.segment-10 {
+    background-color: rgba(64, 224, 208, 0.7);
+}
+
+.segment-5 {
+    background-color: rgba(0, 255, 255, 0.7);
+}
+
+.segment-0 {
+    background-color: rgba(0, 191, 255, 0.7);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/* Neon Effect */
+.neon-red {
+    box-shadow: 0 0 20px rgba(255, 87, 87, 0.7);
+}
+
+.neon-orange {
+    box-shadow: 0 0 20px rgba(255, 182, 47, 0.7);
+}
+
+.neon-blue {
+    box-shadow: 0 0 20px rgba(28, 225, 255, 0.7);
+}
+
+.neon-green {
+    box-shadow: 0 0 20px rgba(4, 98, 7, 0.7);
+}
+
+.neon-purple {
+    box-shadow: 0 0 20px rgba(249, 64, 215, 0.7);
+}
+
 
 
 

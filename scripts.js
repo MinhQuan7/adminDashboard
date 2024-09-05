@@ -708,32 +708,37 @@ const setupDashboard = instanceId => {
     await pollingCheckbox.click();
 })();
 
-
 function getRandomTemperature(min, max) {
     return (Math.random() * (max - min) + min).toFixed(1);
 }
 
 function updateTemperature() {
     const temperatureElement = document.getElementById('temperature');
-    const tempLabelElement = document.getElementById('temp-label');
     const barIndicator = document.getElementById('bar-indicator');
+    const barContainer = document.querySelector('.bar-container-with-labels'); // Changed selector to class
 
-    // Random temperature between 15 and 38
-    const randomTemp = getRandomTemperature(15, 38);
+    // Random temperature between 0 and 40
+    const randomTemp = getRandomTemperature(0, 40);
     temperatureElement.innerHTML = randomTemp;
 
     // Calculate the position of the bar based on the temperature
-    const tempPercent = ((randomTemp - 15) / (38 - 15)) * 100;
-    barIndicator.style.top = (100 - tempPercent) + '%'; // Reverse percentage for correct bar position
-    tempLabelElement.innerHTML = randomTemp;
+    const tempPercent = ((randomTemp - 0) / (40 - 0)) * 100;
+    barIndicator.style.top = (100 - tempPercent) + '%'; // Move the black bar according to the temperature
 
-    // Change color of the temperature text based on value
+    // Remove previous neon classes
+    barContainer.classList.remove('neon-red', 'neon-orange', 'neon-blue', 'neon-green', 'neon-purple');
+
+    // Add neon effect based on temperature range
     if (randomTemp >= 30) {
-        temperatureElement.style.color = 'orange';
-    } else if (randomTemp <= 20) {
-        temperatureElement.style.color = 'blue';
+        barContainer.classList.add('neon-red');
+    } else if (randomTemp >= 20) {
+        barContainer.classList.add('neon-orange');
+    } else if (randomTemp >= 10) {
+        barContainer.classList.add('neon-blue');
+    } else if (randomTemp >= 5) {
+        barContainer.classList.add('neon-green');
     } else {
-        temperatureElement.style.color = 'green';
+        barContainer.classList.add('neon-purple');
     }
 }
 
