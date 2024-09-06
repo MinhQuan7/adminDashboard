@@ -46,11 +46,12 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     padding: 15px;
-    width: 80%; /* Use viewport width */
+    width: 480px; /* Use viewport width */
     height: 210px; /* Use viewport height */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     color: #000000;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    margin-left: 28px;
 }
 
 .widget:hover {
@@ -119,7 +120,7 @@ body {
     left: 0; /* Căn sang trái */
     margin: 15px; /* Khoảng cách với viền trái và trên */
     }
-    
+
     .widget h2 {
         font-size: 28px;
         color: #130f0f;
